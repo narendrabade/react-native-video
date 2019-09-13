@@ -55,6 +55,8 @@ static int const RCTVideoUnset = -1;
   BOOL _playWhenInactive;
   NSString * _ignoreSilentSwitch;
   NSString * _resizeMode;
+ NSString * _setting;
+  
   BOOL _fullscreenPlayerPresented;
   UIViewController * _presentingViewController;
 }
@@ -733,6 +735,14 @@ static int const RCTVideoUnset = -1;
   [self applyModifiers];
 }
 
+- (void)setSetting:(NSString*)setting
+{
+    NSLog(@"setting %@",setting);
+    _setting = setting;
+    NSLog(@"_setting %@",_setting);
+    [self applyModifiers];
+}
+
 - (void)applyModifiers
 {
   if (_muted) {
@@ -742,7 +752,6 @@ static int const RCTVideoUnset = -1;
     [_player setVolume:_volume];
     [_player setMuted:NO];
   }
-
   [self setSelectedAudioTrack:_selectedAudioTrack];
   [self setSelectedTextTrack:_selectedTextTrack];
   [self setResizeMode:_resizeMode];
