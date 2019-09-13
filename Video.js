@@ -313,6 +313,7 @@ Video.propTypes = {
   ]),
   resizeMode: PropTypes.string,
   poster: PropTypes.string,
+  swankSettings: PropTypes.string,
   posterResizeMode: Image.propTypes.resizeMode,
   repeat: PropTypes.bool,
   allowsExternalPlayback: PropTypes.bool,
