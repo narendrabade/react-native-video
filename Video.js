@@ -284,6 +284,8 @@ export default class Video extends Component {
 Video.propTypes = {
   /* Native only */
   src: PropTypes.object,
+  swankSettings: PropTypes.string,
+
   seek: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object
