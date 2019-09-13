@@ -343,6 +343,8 @@ Video.propTypes = {
     })
   ),
   paused: PropTypes.bool,
+  setting: PropTypes.string,
+
   muted: PropTypes.bool,
   volume: PropTypes.number,
   bufferConfig: PropTypes.shape({
