@@ -15,6 +15,9 @@
 		641E28501F0EECF100443AF6 /* UIView+FindUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CAFB201CADA8CD009BCF6F /* UIView+FindUIViewController.m */; };
 		BBD49E3F1AC8DEF000610F8E /* RCTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD49E3A1AC8DEF000610F8E /* RCTVideo.m */; };
 		BBD49E401AC8DEF000610F8E /* RCTVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD49E3C1AC8DEF000610F8E /* RCTVideoManager.m */; };
+		D6503EFF232C5E4700B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6503EFC232C5E4600B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework */; };
+		D6503F00232C5E4700B9FCD6 /* dynvideokit_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6503EFD232C5E4700B9FCD6 /* dynvideokit_dev.framework */; };
+		D6503F01232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6503EFE232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +53,9 @@
 		BBD49E3A1AC8DEF000610F8E /* RCTVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTVideo.m; sourceTree = "<group>"; };
 		BBD49E3B1AC8DEF000610F8E /* RCTVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTVideoManager.h; sourceTree = "<group>"; };
 		BBD49E3C1AC8DEF000610F8E /* RCTVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTVideoManager.m; sourceTree = "<group>"; };
+		D6503EFC232C5E4600B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = widevine_cdm_sdk_dev_insecure.framework; sourceTree = "<group>"; };
+		D6503EFD232C5E4700B9FCD6 /* dynvideokit_dev.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = dynvideokit_dev.framework; sourceTree = "<group>"; };
+		D6503EFE232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = widevine_cdm_sdk_dev.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6503F01232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework in Frameworks */,
+				D6503EFF232C5E4700B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework in Frameworks */,
+				D6503F00232C5E4700B9FCD6 /* dynvideokit_dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				D6503EFB232C5E1C00B9FCD6 /* Frameworks */,
 				BBD49E391AC8DEF000610F8E /* RCTVideo.h */,
 				BBD49E3A1AC8DEF000610F8E /* RCTVideo.m */,
 				31CAFB301CAE6B5F009BCF6F /* RCTVideoPlayerViewControllerDelegate.h */,
@@ -93,6 +103,16 @@
 				134814211AA4EA7D00B7C361 /* Products */,
 				641E28441F0EEC8500443AF6 /* libRCTVideo.a */,
 			);
+			sourceTree = "<group>";
+		};
+		D6503EFB232C5E1C00B9FCD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6503EFD232C5E4700B9FCD6 /* dynvideokit_dev.framework */,
+				D6503EFC232C5E4600B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework */,
+				D6503EFE232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +292,10 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -286,6 +310,10 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -362,6 +390,7 @@
 				641E284B1F0EEC8500443AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
