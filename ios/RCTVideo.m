@@ -303,50 +303,96 @@ static int const RCTVideoUnset = -1;
 
 #pragma mark - Player and source
 
-- (void)setSrc:(NSDictionary *)source
+ (void)setSrc:(NSDictionary *)source
 {
   [self removePlayerLayer];
   [self removePlayerTimeObserver];
   [self removePlayerItemObservers];
-  
+  NSString *uri = [source objectForKey:@"uri"];
+  NSString *type = [source objectForKey:@"type"];
+
+  NSString *settingsUrl = _setting;
+    
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
-    // perform on next run loop, otherwise other passed react-props may not be set
-    _playerItem = [self playerItemForSource:source];
-    [self addPlayerItemObservers];
+      
+      avPlayerItemCompletion playerItemCompleteBlock = ^(AVPlayerItem * item, NSString * error) {
+          _playerItem = item;
+          NSLog(@"Narendra _playerItem %@", _playerItem);
+          [self playVideo: source];
+      };
+      
+      if ([type isEqualToString:@"DRM"]) {
+          SwankProtectedMediaLoader *mediaLoader = [[SwankProtectedMediaLoader alloc] init];
+          [mediaLoader beginAVPlayerItemLoad:uri settingsUrl:settingsUrl completionCallback:playerItemCompleteBlock];
 
-    [_player pause];
-    [_playerViewController.view removeFromSuperview];
-    _playerViewController = nil;
-
-    if (_playbackRateObserverRegistered) {
-      [_player removeObserver:self forKeyPath:playbackRate context:nil];
-      _playbackRateObserverRegistered = NO;
-    }
-
-    _player = [AVPlayer playerWithPlayerItem:_playerItem];
-    _player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-
-    [_player addObserver:self forKeyPath:playbackRate options:0 context:nil];
-    _playbackRateObserverRegistered = YES;
-
-    [self addPlayerTimeObserver];
-
-    //Perform on next run loop, otherwise onVideoLoadStart is nil
-    if(self.onVideoLoadStart) {
-      id uri = [source objectForKey:@"uri"];
-      id type = [source objectForKey:@"type"];
-      self.onVideoLoadStart(@{@"src": @{
-                                        @"uri": uri ? uri : [NSNull null],
-                                        @"type": type ? type : [NSNull null],
-                                        @"isNetwork": [NSNumber numberWithBool:(bool)[source objectForKey:@"isNetwork"]]},
-                                        @"target": self.reactTag
-                                        });
-    }
-
+      } else {
+          _playerItem = [self playerItemForSource:source];
+          [self playVideo:source];
+      }
   });
   _videoLoadStarted = YES;
 }
+
+-(void) playVideo:(NSDictionary *)source {
+
+    [self addPlayerItemObservers];
+    
+    [_player pause];
+    [_playerViewController.view removeFromSuperview];
+    _playerViewController = nil;
+    
+    if (_playbackRateObserverRegistered) {
+        [_player removeObserver:self forKeyPath:playbackRate context:nil];
+        _playbackRateObserverRegistered = NO;
+    }
+    
+    _player = [AVPlayer playerWithPlayerItem:_playerItem];
+
+    _player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    
+    [_player addObserver:self forKeyPath:playbackRate options:0 context:nil];
+    _playbackRateObserverRegistered = YES;
+    
+    [self addPlayerTimeObserver];
+    
+    //Perform on next run loop, otherwise onVideoLoadStart is nil
+    if(self.onVideoLoadStart) {
+        id uri = [source objectForKey:@"uri"];
+        id type = [source objectForKey:@"type"];
+        self.onVideoLoadStart(@{@"src": @{
+                                        @"uri": uri ? uri : [NSNull null],
+                                        @"type": type ? type : [NSNull null],
+                                        @"isNetwork": [NSNumber numberWithBool:(bool)[source objectForKey:@"isNetwork"]]},
+                                @"target": self.reactTag
+                                });
+    }
+}
+
+
+- (void)onClose {
+    
+}
+
+- (void)onError:(NSString *)errorMessage {    
+}
+
+- (void)onOffsetFired:(int)offset {    
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {    
+}
+
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator { 
+}
+
+- (void)setNeedsFocusUpdate {
+}
+
+
+- (void)updateFocusIfNeeded {
+}
+
 
 - (NSURL*) urlFilePath:(NSString*) filepath {
   if ([filepath containsString:@"file://"]) {
