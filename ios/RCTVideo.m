@@ -303,7 +303,7 @@ static int const RCTVideoUnset = -1;
 
 #pragma mark - Player and source
 
- (void)setSrc:(NSDictionary *)source
+-(void)setSrc:(NSDictionary *)source
 {
   [self removePlayerLayer];
   [self removePlayerTimeObserver];
