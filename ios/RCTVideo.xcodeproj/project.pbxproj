@@ -15,9 +15,8 @@
 		641E28501F0EECF100443AF6 /* UIView+FindUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CAFB201CADA8CD009BCF6F /* UIView+FindUIViewController.m */; };
 		BBD49E3F1AC8DEF000610F8E /* RCTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD49E3A1AC8DEF000610F8E /* RCTVideo.m */; };
 		BBD49E401AC8DEF000610F8E /* RCTVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD49E3C1AC8DEF000610F8E /* RCTVideoManager.m */; };
-		D6503EFF232C5E4700B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6503EFC232C5E4600B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework */; };
-		D6503F00232C5E4700B9FCD6 /* dynvideokit_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6503EFD232C5E4700B9FCD6 /* dynvideokit_dev.framework */; };
-		D6503F01232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6503EFE232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework */; };
+		D6510FA1232F337D00FF9B3B /* dynvideokit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6510F9F232F337D00FF9B3B /* dynvideokit.framework */; };
+		D6510FA2232F337D00FF9B3B /* widevine_cdm_sdk_release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6510FA0232F337D00FF9B3B /* widevine_cdm_sdk_release.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,9 +52,8 @@
 		BBD49E3A1AC8DEF000610F8E /* RCTVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTVideo.m; sourceTree = "<group>"; };
 		BBD49E3B1AC8DEF000610F8E /* RCTVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTVideoManager.h; sourceTree = "<group>"; };
 		BBD49E3C1AC8DEF000610F8E /* RCTVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTVideoManager.m; sourceTree = "<group>"; };
-		D6503EFC232C5E4600B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = widevine_cdm_sdk_dev_insecure.framework; sourceTree = "<group>"; };
-		D6503EFD232C5E4700B9FCD6 /* dynvideokit_dev.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = dynvideokit_dev.framework; sourceTree = "<group>"; };
-		D6503EFE232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = widevine_cdm_sdk_dev.framework; sourceTree = "<group>"; };
+		D6510F9F232F337D00FF9B3B /* dynvideokit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = dynvideokit.framework; sourceTree = "<group>"; };
+		D6510FA0232F337D00FF9B3B /* widevine_cdm_sdk_release.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = widevine_cdm_sdk_release.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6503F01232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework in Frameworks */,
-				D6503EFF232C5E4700B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework in Frameworks */,
-				D6503F00232C5E4700B9FCD6 /* dynvideokit_dev.framework in Frameworks */,
+				D6510FA1232F337D00FF9B3B /* dynvideokit.framework in Frameworks */,
+				D6510FA2232F337D00FF9B3B /* widevine_cdm_sdk_release.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,9 +105,8 @@
 		D6503EFB232C5E1C00B9FCD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6503EFD232C5E4700B9FCD6 /* dynvideokit_dev.framework */,
-				D6503EFC232C5E4600B9FCD6 /* widevine_cdm_sdk_dev_insecure.framework */,
-				D6503EFE232C5E4700B9FCD6 /* widevine_cdm_sdk_dev.framework */,
+				D6510F9F232F337D00FF9B3B /* dynvideokit.framework */,
+				D6510FA0232F337D00FF9B3B /* widevine_cdm_sdk_release.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

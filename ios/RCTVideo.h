@@ -4,7 +4,7 @@
 #import "UIView+FindUIViewController.h"
 #import "RCTVideoPlayerViewController.h"
 #import "RCTVideoPlayerViewControllerDelegate.h"
-#import "dynvideokit_dev/dynvideokit.h"
+#import "dynvideokit/dynvideokit.h"
 @class RCTEventDispatcher;
 
 @interface RCTVideo : UIView <RCTVideoPlayerViewControllerDelegate, SwankPlayerControllerDelegate>
