@@ -55,7 +55,6 @@ static int const RCTVideoUnset = -1;
   BOOL _playWhenInactive;
   NSString * _ignoreSilentSwitch;
   NSString * _resizeMode;
- NSString * _setting;
   
   BOOL _fullscreenPlayerPresented;
   UIViewController * _presentingViewController;
@@ -309,22 +308,19 @@ static int const RCTVideoUnset = -1;
   [self removePlayerTimeObserver];
   [self removePlayerItemObservers];
   NSString *uri = [source objectForKey:@"uri"];
-  NSString *type = [source objectForKey:@"type"];
-
-  NSString *settingsUrl = _setting;
-    
+  bool isSwankVideo = [RCTConvert BOOL:[source objectForKey:@"isSwankVideo"]];
+  NSString *swankKeyPath = [source objectForKey:@"swankKeyPath"];
+  NSLog(@"uri: %@ \n isSwankVideo: %d \n swankKeyPath: %@", uri, isSwankVideo, swankKeyPath);
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
       
       avPlayerItemCompletion playerItemCompleteBlock = ^(AVPlayerItem * item, NSString * error) {
           _playerItem = item;
-          NSLog(@"Narendra _playerItem %@", _playerItem);
           [self playVideo: source];
       };
       
-      if ([type isEqualToString:@"DRM"]) {
+      if (isSwankVideo) {
           SwankProtectedMediaLoader *mediaLoader = [[SwankProtectedMediaLoader alloc] init];
-          [mediaLoader beginAVPlayerItemLoad:uri settingsUrl:settingsUrl completionCallback:playerItemCompleteBlock];
+          [mediaLoader beginAVPlayerItemLoad:uri settingsUrl:swankKeyPath completionCallback:playerItemCompleteBlock];
 
       } else {
           _playerItem = [self playerItemForSource:source];
@@ -779,14 +775,6 @@ static int const RCTVideoUnset = -1;
 {
   _volume = volume;
   [self applyModifiers];
-}
-
-- (void)setSetting:(NSString*)setting
-{
-    NSLog(@"setting %@",setting);
-    _setting = setting;
-    NSLog(@"_setting %@",_setting);
-    [self applyModifiers];
 }
 
 - (void)applyModifiers

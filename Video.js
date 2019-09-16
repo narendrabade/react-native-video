@@ -194,7 +194,8 @@ export default class Video extends Component {
   render() {
     const resizeMode = this.props.resizeMode;
     const source = resolveAssetSource(this.props.source) || {};
-
+    let swankKeyPath = source.swankKeyPath || '';
+    let isSwankVideo = source.isSwankVideo || false;
     let uri = source.uri || '';
     if (uri && uri.match(/^\//)) {
       uri = `file://${uri}`;
@@ -220,6 +221,8 @@ export default class Video extends Component {
       resizeMode: nativeResizeMode,
       src: {
         uri,
+        swankKeyPath,
+        isSwankVideo,
         isNetwork,
         isAsset,
         type: source.type || '',
@@ -343,8 +346,6 @@ Video.propTypes = {
     })
   ),
   paused: PropTypes.bool,
-  setting: PropTypes.string,
-
   muted: PropTypes.bool,
   volume: PropTypes.number,
   bufferConfig: PropTypes.shape({
