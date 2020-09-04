@@ -16,9 +16,16 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = "9.0"
 
   s.subspec "Video" do |ss|
+        ss.dependency "react-native-video/Frameworks"
+
     ss.source_files  = "ios/Video/*.{h,m}"
     s.static_framework = true
   end
+
+  s.subspec "Framework" do |ss|
+    s.static_framework = true
+  end
+
 
   s.subspec "VideoCaching" do |ss|
     ss.dependency "react-native-video/Video"
