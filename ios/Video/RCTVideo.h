@@ -3,9 +3,10 @@
 #import "UIView+FindUIViewController.h"
 #import "RCTVideoPlayerViewController.h"
 #import "RCTVideoPlayerViewControllerDelegate.h"
+#import "dynvideokit/dynvideokit.h"
+
 #import <React/RCTComponent.h>
 #import <React/RCTBridgeModule.h>
-#import "dynvideokit/dynvideokit.h"
 #if __has_include(<react-native-video/RCTVideoCache.h>)
 #import <react-native-video/RCTVideoCache.h>
 #import <DVAssetLoaderDelegate/DVURLAsset.h>

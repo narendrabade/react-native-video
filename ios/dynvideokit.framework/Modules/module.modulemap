@@ -1,0 +1,6 @@
+framework module dynvideokit {
+  umbrella header "dynvideokit.h"
+
+  export *
+  module * { export * }
+}
