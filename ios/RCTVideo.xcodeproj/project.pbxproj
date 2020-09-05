@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,8 @@
 		D1107C0F2110259000073188 /* RCTVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1107C062110259000073188 /* RCTVideoManager.m */; };
 		D1107C102110259000073188 /* RCTVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1107C082110259000073188 /* RCTVideoPlayerViewController.m */; };
 		D1107C112110259000073188 /* RCTVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1107C082110259000073188 /* RCTVideoPlayerViewController.m */; };
-		D6FC218A2502B5A1001F99B0 /* widevine_cdm_sdk_release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FC21882502B5A1001F99B0 /* widevine_cdm_sdk_release.framework */; };
-		D6FC218B2502B5A1001F99B0 /* dynvideokit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FC21892502B5A1001F99B0 /* dynvideokit.framework */; };
+		D6FC218A2502B5A1001F99B0 /* widevine_cdm_sdk_release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FC21882502B5A1001F99B0 /* widevine_cdm_sdk_release.framework */; platformFilter = ios; };
+		D6FC218B2502B5A1001F99B0 /* dynvideokit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FC21892502B5A1001F99B0 /* dynvideokit.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		641E28441F0EEC8500443AF6 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		641E28441F0EEC8500443AF6 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRCTVideo.a; path = "/Users/narendrabade/RNProject/RNV-Github/react-native-video/ios/build/Debug-appletvos/libRCTVideo.a"; sourceTree = "<absolute>"; };
 		D1107C012110259000073188 /* RCTVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTVideoPlayerViewController.h; path = Video/RCTVideoPlayerViewController.h; sourceTree = "<group>"; };
 		D1107C022110259000073188 /* RCTVideoPlayerViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTVideoPlayerViewControllerDelegate.h; path = Video/RCTVideoPlayerViewControllerDelegate.h; sourceTree = "<group>"; };
 		D1107C032110259000073188 /* UIView+FindUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+FindUIViewController.m"; path = "Video/UIView+FindUIViewController.m"; sourceTree = "<group>"; };
@@ -87,8 +87,6 @@
 		49E995712048B4CE00EA7890 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6FC21892502B5A1001F99B0 /* dynvideokit.framework */,
-				D6FC21882502B5A1001F99B0 /* widevine_cdm_sdk_release.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,6 +94,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				D6FC21892502B5A1001F99B0 /* dynvideokit.framework */,
+				D6FC21882502B5A1001F99B0 /* widevine_cdm_sdk_release.framework */,
 				D1107C072110259000073188 /* RCTVideo.h */,
 				D1107C052110259000073188 /* RCTVideo.m */,
 				D1107C092110259000073188 /* RCTVideoManager.h */,
@@ -106,7 +106,6 @@
 				D1107C042110259000073188 /* UIView+FindUIViewController.h */,
 				D1107C032110259000073188 /* UIView+FindUIViewController.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
-				641E28441F0EEC8500443AF6 /* libRCTVideo.a */,
 				49E995712048B4CE00EA7890 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -291,9 +290,9 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/**",
 					"$(PROJECT_DIR)",
 				);
+				FRAMEWORK_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -311,9 +310,9 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/**",
 					"$(PROJECT_DIR)",
 				);
+				FRAMEWORK_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
